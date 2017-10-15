@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <include file="struts-default.xml"/>
+    <package name="webtest" extends="struts-default">
+		<!-- Action配置 一个Action可以被多次映射(只要action配置中的name不同)
+	       name：action名称
+	       class: 对应的类的路径
+	       method: 调用Action中的方法名-->
+
+        <action name="Search" class="webtest.BookAction" method="search">
+            <result name="Right">/smessage.jsp</result>
+            <result name="Error">/warning.jsp</result>
+            <result name="NoBook">/noBook.jsp</result>
+            <result name="Null">/null.jsp</result>
+            <result name="authorInexistence">/authorInexistence.jsp</result>
+        </action>
+
+        <action name="Detail" class="webtest.BookAction" method="detail">
+            <result name="Right">/detail.jsp</result>
+            <result name="Error">/warning.jsp</result>
+        </action>
+
+        <action name="Delete" class="webtest.BookAction" method="delete">
+            <result name="Right">/success.jsp</result>
+            <result name="Error">/warning.jsp</result>
+        </action>
+
+        <action name="AddAuthor" class="webtest.BookAction" method="addAuthor">
+            <result name="Right">/success.jsp</result>
+            <result name="Error">/warning.jsp</result>
+            <result name="Rewrite">/Rewrite.jsp</result>
+		</action>
+
+		<action name="AddBook" class="webtest.BookAction" method="addBook">
+            <result name="Right">/success.jsp</result>
+            <result name="addAuthor">/addAuthor.jsp</result>
+            <result name="Error">/warning.jsp</result>
+            <result name="Null">/null.jsp</result>
+		</action>
+
+        <action name="UpDate" class="webtest.BookAction" method="upDate">
+        	<result name="Null">/null.jsp</result>
+        	<result name="Right">/success.jsp</result>
+            <result name="addAuthor">/addAuthor.jsp</result>
+            <result name="Error">/warning.jsp</result>
+            <result name="bookInexistence">/bookInexistence.jsp</result>
+        </action>
+
+        <action name="AllBook" class="webtest.BookAction" method="allBook">
+        	<result name="Right">/allBook.jsp</result>
+            <result name="Error">/warning.jsp</result>
+        </action>
+
+        <action name="AllAuthor" class="webtest.BookAction" method="allAuthor">
+        	<result name="Right">/allAuthor.jsp</result>
+            <result name="Error">/warning.jsp</result>
+        </action>
+
+    </package>
+</struts>
